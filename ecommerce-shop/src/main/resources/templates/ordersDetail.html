@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="template"
+		th:with="H1='Order Detail'">
+		
+<head>
+<meta charset="ISO-8859-1">
+<title>Order Detail</title>
+</head>
+<body>
+	<th:block layout:fragment="content-body">
+	<h4>Order Id : 
+	
+			
+	
+	</h4>
+	
+	<h5 th:text="${order.shippingName}"></h5>
+		
+		<!-- <table class="table table-light table-striped mt-3">
+			<tr>
+				<th>Id</th>
+				
+				<th>Products</th>
+				<th>Quanity</th>
+				<th></th>
+			</tr>
+			<th:block th:each="ord : ${ordersList}">
+				<tr>
+					<td th:text="${ord.id}"></td>
+					<td th:text="${ord.shippingName}"></td>
+					<td th:text="${ord.shippingEmail}"></td>
+					<td th:text="${ord.shippingPhone}"></td>
+					<td th:text="${ord.shippingAddres}"></td>
+					<td th:text="${ord.status}"></td>
+					<td th:text="${ord.customer.id}"></td>
+					
+					<td>
+						<a th:href="@{'/admin/ordersDetail/' + ${ord.id}}" class="text-success">Detail</a> | 
+						<a th:href="@{'/admin/ordersDelete/' + ${ord.id}}" class="text-success">Change Stage</a>
+					</td>
+				</tr>
+			</th:block>
+		</table> -->
+	</th:block>
+</body>
+</html>

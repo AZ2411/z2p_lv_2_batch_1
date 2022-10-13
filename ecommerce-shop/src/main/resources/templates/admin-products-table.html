@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="admin_template"
+		th:with="header1='Products Table'"
+				>
+    <head>
+        <title>Products Tables</title>
+    </head>
+    <body>
+        <th:block layout:fragment="content_body">
+        	<div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                DataTable Example
+                            </div>
+                            <div class="card-body">
+                            <a th:href="@{/admin/productsAdd}" class="btn btn-success  float-end">Add</a>
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Category</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Category</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                       <th:block th:each="prod : ${productsList}">
+				<tr>
+					<td th:text="${prod.id}"></td>
+					<td th:text="${prod.name}"></td>
+					<td th:text="${prod.price}"></td>
+					<td th:text="${prod.cate.name}"></td>
+					<td th:text="${prod.created_at}"></td>
+					
+					<td>
+						<a th:href="@{'/admin/productsupdate/' + ${prod.id}}" class="text-success">Edit</a> | 
+						<a th:href="@{'/admin/productsDelete/' + ${prod.id}}" class="text-danger">Delete</a>
+					</td>
+				</tr>
+			</th:block>
+                                    </tbody>
+                                </table>
+                            </div>
+        
+        </th:block>
+       
+    </body>
+</html>

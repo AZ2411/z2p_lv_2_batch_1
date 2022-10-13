@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="storefront-template"
+		th:with="t1='Check Out',t2='check out'"
+>
+  <head>
+		<title>Title</title>
+	</head>
+
+<body>
+<section class="ftco-section" layout:fragment="content-body">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 ftco-animate">
+						<form action="#" class="billing-form">
+							<h3 class="mb-4 billing-heading">Billing Details</h3>
+	          	<div class="row align-items-end">
+	          		 <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="streetaddress" >Name</label>
+	                  <input id="r-name" type="text" class="form-control" th:value="${name}">
+	                </div>
+		            </div>
+		            
+	               <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="streetaddress">Email</label>
+	                  <input id="r-email" type="email" class="form-control" placeholder="Enter Email" th:value="${email}">
+	                </div>
+		            </div>
+                
+		            
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="streetaddress">Phone Number</label>
+	                  <input id="r-phone" type="text" class="form-control" th:value="${phone}">
+	                </div>
+		            </div>
+		           
+		            
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="towncity">Address</label>
+	                  <input id="r-address" type="text" class="form-control" placeholder="" th:value="${address}">
+	                </div>
+		            </div>
+		            
+		            <div class="w-100"></div>
+		            
+                <div class="w-100"></div>
+                
+	            </div>
+	          </form><!-- END -->
+
+
+
+	          <div class="row mt-5 pt-3 d-flex">
+	          	<div class="col-md d-flex">
+	          		<div class="cart-detail cart-total bg-light p-3 p-md-4">
+	          			<h3 class="billing-heading mb-4">Cart Total</h3>
+	          			<p class="d-flex">
+		    						<span>Subtotal</span>
+		    						<span class="total">20.60 ks.</span>
+		    					</p>
+		    					<p class="d-flex">
+		    						<span>Delivery</span>
+		    						<span>0.00 ks.</span>
+		    					</p>
+		    					<p class="d-flex">
+		    						<span>Discount</span>
+		    						<span>3.00 ks.</span>
+		    					</p>
+		    					<hr>
+		    					<p class="d-flex total-price">
+		    						<span>Total</span>
+		    						<span class="grand-total">17.60 ks.</span>
+		    					</p>
+		    					<p><a href="#"class="btn btn-primary py-3 px-4 mt-5 btn-place-order">Place an order</a></p>
+								</div>
+	          	</div>
+	          	
+	          </div>
+          </div> <!-- .col-md-8 -->
+        </div>
+      </div>
+    </section> <!-- .section -->
+    <th:block layout:fragment="js">	
+    	<script th:src="@{/app/js/cart.js}"></script>
+    	<script th:src="@{/app/js/checkout.js}"></script>
+    	<script th:src="@{//cdn.jsdelivr.net/npm/sweetalert2@11}"></script>
+    </th:block>
+</body>
+</html>

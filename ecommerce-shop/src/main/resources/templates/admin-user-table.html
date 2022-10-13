@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="admin_template"
+		th:with="header1='User Table'"
+				>
+    <head>
+        <title>User Tables</title>
+    </head>
+    <body>
+        <th:block layout:fragment="content_body">
+        	<div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                DataTable Example
+                            </div>
+                            <div class="card-body">
+                            
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Phone</th>
+											<th>Role</th>
+											<th>Action</th>
+										</tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                           <th>ID</th>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Phone</th>
+											<th>Role</th>
+											<th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                       <th:block th:each="user : ${users}">
+											<tr>
+												<td th:text="${user.id}"></td>
+												<td th:text="${user.name}"></td>
+												<td th:text="${user.email}"></td>
+												
+												<td th:text="${user.phone}"></td>
+												<td th:text="${user.roles}"></td>
+												
+												<td>
+													<a th:href="@{'/admin/usersupdate/' + ${user.id}}" class="text-success">Edit</a> | 
+													<a th:href="@{'/admin/usersDelete/' + ${user.id}}" class="text-danger">Delete</a>
+												</td>
+											</tr>
+										</th:block>
+                                    </tbody>
+                                </table>
+                            </div>
+        
+        </th:block>
+       
+    </body>
+</html>

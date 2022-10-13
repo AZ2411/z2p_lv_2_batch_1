@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="admin_template"
+		th:with="header1='Products Add'"
+				>
+    <head>
+        <title>Products Add</title>
+    </head>
+    <body>
+        <th:block layout:fragment="content_body">
+        	<div class="col-6">
+        		<a th:href="@{/admin/productsTable}" class="btn btn-success float-end">Back</a>
+        	</div>
+        	
+			<form th:action="@{/admin/productsSave}" class="form col-6 mt-5" th:object="${products} " method="post" enctype="multipart/form-data">
+		
+			<input type="hidden" th:field="*{id}"/>
+			<input type="hidden" th:field="*{photo}"/>
+			
+
+			<div class="mb-3">
+				<label for="exampleInputEmail1">Name</label> <input type="text"
+					class="form-control" id="exampleInputEmail1" th:field="*{name}">
+			</div>
+			<div class="mb-3">
+				<label for="exampleInputEmail1">Price</label> <input type="text"
+					class="form-control" id="exampleInputEmail1" th:field="*{price}">
+			</div>
+			<div class="mb-3">
+				<label for="" class="form-label">Category</label> <select
+					th:field="*{cate.id}" class="form-select">
+					<th:block th:each="cate : ${categories}">
+						<option th:value="${cate.id}" th:text="${cate.name}"></option>
+					</th:block>
+				</select>
+			</div>
+			
+			<div class="mb-3">
+				<div class="mb-3">
+					<label for="formFile" class="form-label">Photo</label> 
+					<input class="form-control" type="file" id="formFile" name="photoName">
+				</div>
+			</div>
+			
+			<button class="btn btn-success float-end">Save</button>
+		</form>
+        
+        </th:block>
+       
+    </body>
+</html>

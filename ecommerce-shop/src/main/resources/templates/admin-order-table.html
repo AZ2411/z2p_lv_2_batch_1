@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"
+		xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="admin_template"
+		th:with="header1='Orders Table'"
+				>
+    <head>
+        <title>Orders Tables</title>
+    </head>
+    <body>
+        <th:block layout:fragment="content_body">
+        	<div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                DataTable Example
+                            </div>
+                            <div class="card-body">
+                            
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+											<th>Sipping Name</th>
+											<th>Sipping Email</th>
+											<th>Sipping Phone</th>
+											<th>Sipping Address</th>
+											<th>Status</th>
+											<th>Customer Id</th>
+											<th>Date</th>
+											<th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Id</th>
+											<th>Sipping Name</th>
+											<th>Sipping Email</th>
+											<th>Sipping Phone</th>
+											<th>Sipping Address</th>
+											<th>Status</th>
+											<th>Customer Id</th>
+											<th>Date</th>
+											<th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                      <th:block th:each="ord : ${ordersList}">
+										<tr>
+											<td th:text="${ord.id}"></td>
+											<td th:text="${ord.shippingName}"></td>
+											<td th:text="${ord.shippingEmail}"></td>
+											<td th:text="${ord.shippingPhone}"></td>
+											<td th:text="${ord.shippingAddres}"></td>
+											<td th:text="${ord.status}"></td>
+											<td th:text="${ord.customer.id}"></td>
+											<td th:text="${ord.created_at}"></td>
+											
+											<td>
+												<a th:href="@{'/admin/ordersDetail/' + ${ord.id}}" class="text-success">Detail</a> | 
+												<a th:href="@{'/admin/ordersupdate/' + ${ord.id}}" class="text-success">Change Stage</a>
+											</td>
+										</tr>
+									</th:block>
+                                    </tbody>
+                                </table>
+                            </div>
+        
+        </th:block>
+       
+    </body>
+</html>

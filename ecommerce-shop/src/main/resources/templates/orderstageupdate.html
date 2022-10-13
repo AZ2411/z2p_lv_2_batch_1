@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorate="template"
+		th:with="H1='Order Stage Update'">
+		
+<head>
+<meta charset="ISO-8859-1">
+<title>Order Stage Update</title>
+</head>
+<body>
+	<th:block layout:fragment="content-body">
+		<a th:href="@{/admin/ordersTable}" class="btn btn-success  float-end">Back</a>
+			<form th:action="@{/admin/orderSave}" class="form col-6" th:object="${order} " method="post">
+			<input type="hidden" th:field="*{id}"/>
+			<input type="hidden" th:field="*{customer}"/>
+			<input type="hidden" th:field="*{items}"/>
+			<input type="hidden" th:field="*{shippingName}"/>
+			<input type="hidden" th:field="*{shippingPhone}"/>
+			<input type="hidden" th:field="*{shippingEmail}"/>
+			<input type="hidden" th:field="*{shippingAddres}"/>
+			<input type="hidden" th:field="*{created_at}"/>
+			
+					<div class="col-3">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="order_stage"
+							id="inlineCheckbox1" th:value="pending" th:field="*{status}">
+						<label class="form-check-label" for="inlineCheckbox1">Pending</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="order_stage"
+							id="inlineCheckbox2"  th:value="received"
+							th:field="*{status}"> <label class="form-check-label"
+							for="inlineCheckbox2">Received</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="order_stage"
+							id="inlineCheckbox2"  th:value="cancelled"
+							th:field="*{status}"> <label class="form-check-label"
+							for="inlineCheckbox2">Cancelled</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="order_stage"
+							id="inlineCheckbox2"  th:value="delivered"
+							th:field="*{status}"> <label class="form-check-label"
+							for="inlineCheckbox2">Delivered</label>
+					</div>
+					</div>
+			
+			
+			<button class="btn btn-success float-end">Save</button>
+		</form>
+		
+	</th:block>
+</body>
+</html>
