@@ -74,10 +74,11 @@ public class AppSecurityConfig {
 				
 				
 				
+				
+				
 				).permitAll()
 		.antMatchers(
-				"/products/edit/**",
-				"/products/delete/**",
+				
 				"/admin/productsAdd",
 				"/admin/productsSave",
 				"/admin/productsTable",
